@@ -21,7 +21,6 @@ jobs:
             gcloud auth configure-docker --quiet
             docker build -t python:latest .
             docker tag python:latest gcr.io/meetup-268512/meetup/python:$VERSION
-            docker push gcr.io/meetup-268512/meetup/python:latest
             docker push gcr.io/meetup-268512/meetup/python:$VERSION
             
 workflows:

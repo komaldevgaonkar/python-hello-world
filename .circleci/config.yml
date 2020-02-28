@@ -3,7 +3,7 @@ orbs:
   docker: circleci/docker@0.5.20
   gcp-cli: circleci/gcp-cli@1.8.3
 jobs:
-  build:
+  meetup:
     docker:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
@@ -24,9 +24,8 @@ jobs:
             docker push gcr.io/meetup-268512/meetup/python:$VERSION
             
 workflows:
-  build-and-deploy:
     jobs:
-      - build:
+      - meetup:
           filters:
             branches:
               only: master
